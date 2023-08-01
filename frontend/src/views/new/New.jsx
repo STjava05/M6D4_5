@@ -15,7 +15,7 @@ const NewBlogPost = () => {
   const authorRef = useRef("");
   const emailRef = useRef("");
   const passwordRef = useRef("");
-  const urlRef = useRef("");
+  const coverRef = useRef("");
 
   const dispatch = useDispatch();
 
@@ -29,7 +29,7 @@ const NewBlogPost = () => {
 
     const postPayload = {
       title: titleRef.current.value,
-      url: urlRef.current.value,  
+      cover: coverRef.current.value,  
       email: emailRef.current.value,
       password: passwordRef.current.value,
       category: categoryRef.current.value,
@@ -38,8 +38,7 @@ const NewBlogPost = () => {
         avatar: "https://images.unsplash.com/photo-1675747158920-1b00990de2be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
       },
       content: textRef.current,
-      // cover: imageRef.current.files[0],
-
+      
     };
 
    // Verifica se è stata caricata un'immagine
@@ -63,8 +62,8 @@ const NewBlogPost = () => {
 
         <Form.Label htmlFor="basic-url"></Form.Label>
       <InputGroup className="mb-3">
-        <InputGroup.Text id="basic-addon3">url</InputGroup.Text>
-        <Form.Control id="basic-url" aria-describedby="basic-addon3" ref={urlRef} />
+        <InputGroup.Text id="basic-addon3">cover</InputGroup.Text>
+        <Form.Control id="basic-url" aria-describedby="basic-addon3" ref={coverRef} />
       </InputGroup>
 
 

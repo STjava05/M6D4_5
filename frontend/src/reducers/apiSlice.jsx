@@ -62,11 +62,14 @@ export const postPost = createAsyncThunk(
 export const postLogin = createAsyncThunk(
     "api/postLogin",
     async (login) => {
+        
+
         try {
             const response = await fetch("http://localhost:5051/login", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
+                    
                 },
                 body: JSON.stringify(login),
             });
@@ -105,6 +108,7 @@ const initialState = {
      token: localStorage.getItem("token") || "",
     // Se Token è null, allora token sarà un oggetto vuoto
     totalPages: 0,
+    Detail: [],
     loading: false,
     error: false,
 }
@@ -119,7 +123,13 @@ const apiSlice = createSlice({
         logout: (state, action) => {
             state.token = {};
             localStorage.removeItem("token");
-        }
+        },
+         BlogDetail: (state, action) => {
+            state.Detail = state.data.find((post) =>{
+                return post.id === action.payload;
+            });
+        },
+       
 
     },
     extraReducers: (builder) => {
@@ -159,7 +169,7 @@ const apiSlice = createSlice({
 
 );
 
-export const { setAuthor, logout } = apiSlice.actions;
+export const { setAuthor, logout,BlogDetail } = apiSlice.actions;
 export default apiSlice.reducer;
 
 
