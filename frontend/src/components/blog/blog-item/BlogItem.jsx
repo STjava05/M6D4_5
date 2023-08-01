@@ -9,7 +9,7 @@ const BlogItem = (props) => {
   return (
     <Link to={`/blog/${_id}`} className="blog-link">
       <Card className="blog-card">
-      <Card.Img variant="top" src={`http://localhost:5051/images/${cover}`} className="blog-cover" />
+      <Card.Img variant="top" src={cover} className="blog-cover" />
 
         <Card.Body>
           <Card.Title>{title}</Card.Title>

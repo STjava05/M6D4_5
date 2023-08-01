@@ -39,7 +39,8 @@ export const postPost = createAsyncThunk(
         formData.append("email", post.email);
         formData.append("password", post.password);
         formData.append("content", post.content);
-        formData.append("imageRef", post.cover);
+        formData.append("imageRef", post.imageRef);
+        formData.append("cover", post.cover);
   
         const response = await fetch("http://localhost:5051/user/register", {
           method: "POST",
@@ -105,7 +106,7 @@ export const postComment = createAsyncThunk(
 
 const initialState = {
     data: [],
-     token: localStorage.getItem("token") || "",
+    token: localStorage.getItem("token") || "",
     // Se Token è null, allora token sarà un oggetto vuoto
     totalPages: 0,
     Detail: [],
@@ -125,9 +126,8 @@ const apiSlice = createSlice({
             localStorage.removeItem("token");
         },
          BlogDetail: (state, action) => {
-            state.Detail = state.data.find((post) =>{
-                return post.id === action.payload;
-            });
+            const find = state.data.find((post) => post._id === action.payload);
+            state.Detail = find;
         },
        
 

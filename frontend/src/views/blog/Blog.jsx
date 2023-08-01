@@ -62,8 +62,8 @@
 // };
 
 // export default Blog;
-import React, { useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { useParams } from 'react-router-dom';
 import { BlogDetail } from '../../reducers/apiSlice';
@@ -73,6 +73,7 @@ import { BlogDetail } from '../../reducers/apiSlice';
 const Blog = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
+  console.log(id);
 
   const blogDetailData = useSelector((state) => state.blog.Detail);
   useEffect(() => {
@@ -86,13 +87,13 @@ const Blog = () => {
   return (
     <div>
       {blogDetailData && (
-        <div key={blogDetailData.id}>
+        <div key={blogDetailData._id}>
           <img src={blogDetailData.cover} alt="" />
           <h1>{blogDetailData.title}</h1>
-          <h2>{blogDetailData.author}</h2>
-          <h2>{blogDetailData.email}</h2>
-          <h2>{blogDetailData.password}</h2>
           <p>{blogDetailData.content}</p>
+          <p>{blogDetailData.email}</p>
+          
+          
         </div>
 
 

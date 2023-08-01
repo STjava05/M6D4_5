@@ -29,7 +29,8 @@ const NewBlogPost = () => {
 
     const postPayload = {
       title: titleRef.current.value,
-      cover: coverRef.current.value,  
+      cover: coverRef.current.value,//URL
+      imageRef: imageRef.current.files[0],//File 
       email: emailRef.current.value,
       password: passwordRef.current.value,
       category: categoryRef.current.value,
@@ -40,11 +41,6 @@ const NewBlogPost = () => {
       content: textRef.current,
       
     };
-
-   // Verifica se è stata caricata un'immagine
-  if (imageRef.current && imageRef.current.files && imageRef.current.files.length > 0) {
-    postPayload.cover = imageRef.current.files[0];
-  }
 
 
     dispatch(postPost(postPayload));

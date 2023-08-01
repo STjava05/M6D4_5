@@ -12,20 +12,19 @@ cloudinary.config({
     
 });
 
-cloudinary.uploader.upload("https://th.bing.com/th/id/OIP.eKHHX1iPHffb6FWvMBV6VgHaLG?pid=ImgDet&rs=1", 
-function(error, result) {console.log(result, error)});
 
 
 const cloudinaryStorage = new CloudinaryStorage({
     cloudinary: cloudinary,
-    folder: 'images',
-    allowedFormats: ['jpg', 'png'],
-    filename: function (req, file, cb) {
-        cb(undefined, file.fieldname + '-' + Date.now());
-    }
+    params:{
+        folder: 'images',
+        allowedFormats: ['jpg', 'png']
+    }    
 });
 
-const storage = multer.diskStorage({ //indica dove salvare i file
+
+
+/* const storage = multer.diskStorage({ //indica dove salvare i file
     destination: (req, file, callback) => { //indica la cartella di destinazione
         callback(null, 'images');
     },
@@ -36,10 +35,7 @@ const storage = multer.diskStorage({ //indica dove salvare i file
         callback(null, name);
     }
 });
+ */
 
 
-
-
-
-
-module.exports = multer({ storage: storage,cloudinaryStorage }).single('imageRef'); //esporta il middleware multer configurato per caricare un solo file chiamato image
+module.exports = multer({ storage: cloudinaryStorage }).single('imageRef'); //esporta il middleware multer configurato per caricare un solo file chiamato image
