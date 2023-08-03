@@ -24,3 +24,21 @@ exports.login = (req, res) => {
         )
         .catch(error => res.status(500).json({ error }));
 }
+
+// handleLoginWithGithub = (req, res) => {
+//     window.location.href = 'localhost:3000/auth/github' // redirect to github
+// }
+
+// exports.signup = (req, res) => {
+//     bcrypt.hash(req.body.password, 10)
+//         .then(hash => {
+//             const user = new userModel({
+//                 email: req.body.email,
+//                 password: hash
+//             });
+//             user.save()
+//                 .then(() => res.status(201).json({ message: 'Utente creato!' }))
+//                 .catch(error => res.status(400).json({ error }));
+//         })
+//         .catch(error => res.status(500).json({ error }));
+// }

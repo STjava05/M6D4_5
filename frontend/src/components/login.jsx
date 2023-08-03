@@ -5,6 +5,8 @@ import { postLogin } from "../reducers/apiSlice";
 
 
 
+
+
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -21,6 +23,11 @@ const Login = () => {
         dispatch(postLogin(loginPayload));
     }
 
+   const handleLoginWithGithub = () => {
+       window.location.href = "http://localhost:5051/auth/github"
+    }
+
+
     return (
         <Container className="new-blog-container">
             <Form className="mt-5" onSubmit={handleSubmit}>
@@ -33,7 +40,11 @@ const Login = () => {
                     <Form.Control size="lg" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
                 </Form.Group>
                 <Button variant="primary" type="submit" className="mt-3">Login</Button>
+                <Button onClick={handleLoginWithGithub} 
+            variant="secondary" type="submit" className=" mt-3 ">LoginWithGithub</Button>
+           
             </Form>
+            
         </Container>
 
     )

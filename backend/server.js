@@ -22,7 +22,7 @@ const usersRouter = require('./routes/userRoutes');
 const { login } = require('./middleware/login');
 const { auth } = require('./middleware/auth');
 const sendMail = require('./controllers/sendMail');
-
+const github = require('./routes/githubRoute');
 
 
 
@@ -34,6 +34,7 @@ app.use('/post', auth, postsRouter);
 app.use('/author', auth, authorsRouter);
 app.use('/user', auth, usersRouter);
 app.use('/', sendMail);
+app.use('/', github);
 
 
 

@@ -25,6 +25,9 @@ Content-Type: application/json
 GET http://localhost:5051/user/64b10ba1b8893fec50a38da7
 
 #####
+DELETE http://localhost:5051/user/64c97b0bfe59315b38d84983
+
+#####
 
 PATCH  http://localhost:5051/user HTTP/1.1
 

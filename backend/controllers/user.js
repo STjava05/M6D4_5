@@ -25,7 +25,7 @@ const createUser = (req, res) => {
 const getAllUser = async (req, res, next) => {
     try {
         const page = parseInt(req.query.page) || 1; // Ottieni il numero di pagina dalla query (se non specificato, assume 1)
-        const itemPerPage = parseInt(req.query.limit) || 5; // Ottieni il numero di elementi per pagina dalla query (se non specificato, assume 5)
+        const itemPerPage = parseInt(req.query.limit) || 9; // Ottieni il numero di elementi per pagina dalla query (se non specificato, assume 5)
 
         const totalUsers = await userModel.count(); // Calcola il numero totale di utenti
         const totalPages = Math.ceil(totalUsers / itemPerPage); // Calcola il numero totale di pagine

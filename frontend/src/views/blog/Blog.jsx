@@ -90,10 +90,10 @@ const Blog = () => {
         <div key={blogDetailData._id}>
           <img src={blogDetailData.cover} alt="" />
           <h1>{blogDetailData.title}</h1>
-          <p>{blogDetailData.content}</p>
+          <h6>{blogDetailData.content}</h6>
           <p>{blogDetailData.email}</p>
-          
-          
+
+
         </div>
 
 
@@ -101,6 +101,8 @@ const Blog = () => {
 
     </div>
   )
+
+
 }
 
 export default Blog
